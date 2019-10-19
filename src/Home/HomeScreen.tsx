@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FlightDataType } from "../Types";
+import { FlightDataType, ArrDepType } from "../Types";
+import FlightsList from "../List/FlightsList";
 
 export default function HomeScreen() {
   const [allFlights, setAllFlights] = useState<FlightDataType[]>([]);
@@ -30,6 +31,19 @@ export default function HomeScreen() {
     // };
   }, []);
 
+  function splitFlights() {
+    const arrivalFlights: FlightDataType[] = [];
+    const departureFlights = allFlights.filter(flight => {
+      if (flight.ArrDep === ArrDepType.ARRIVAL) {
+        arrivalFlights.push(flight);
+      } else {
+        return flight;
+      }
+    });
+
+    return showDepartures ? departureFlights : arrivalFlights;
+  }
+
   console.log("ALL FLIGHTS: ", allFlights);
 
   return (
@@ -44,7 +58,10 @@ export default function HomeScreen() {
       <div>
         <p onClick={() => setShowDepartures(false)}>Arrivals Tab</p>
         <p onClick={() => setShowDepartures(true)}>Departures Tab</p>
-        <p>List Component</p>
+
+        <div>
+          <FlightsList flights={splitFlights()} />
+        </div>
       </div>
     </div>
   );
