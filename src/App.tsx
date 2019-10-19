@@ -1,16 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomeScreen from "./Home/HomeScreen";
 
 function App() {
-
-
-
   return (
-    <div className="App">
-      
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <HomeScreen />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
