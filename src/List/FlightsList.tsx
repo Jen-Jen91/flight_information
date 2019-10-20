@@ -10,21 +10,15 @@ export interface FlightsListProps {
 export default function FlightsList(props: FlightsListProps) {
   const { flights } = props;
   const [filteredFlights, setFilteredFlights] = useState<FlightDataType[]>([]);
-  // const [flightNotFound, setFlightNotFound] = useState(false);
 
   useEffect(() => setFilteredFlights(flights), [flights]);
 
   function searchFlights(searchText: string) {
-    console.log("STRING: ", searchText);
     const newFiltered = flights.filter(flight =>
-      `${flight.Airline} ${flight.FlightNo} ${flight.PortOfCallA}`
+      `${flight.Airline} ${flight.FlightNo} ${flight.PortOfCallA} ${flight.Time}`
         .toLocaleUpperCase()
         .includes(searchText.toLocaleUpperCase())
     );
-
-    // if (newFiltered.length === 0) {
-    //   setFlightNotFound(true);
-    // }
 
     setFilteredFlights(newFiltered);
   }

@@ -14,7 +14,6 @@ export default function SearchBar(props: SearchBarProps) {
         type="search"
         value={searchValue}
         onChange={e => {
-          console.log("E: ", e.target.value);
           setSearchValue(e.target.value);
           props.search(e.target.value);
         }}

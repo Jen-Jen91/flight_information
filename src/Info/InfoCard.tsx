@@ -1,30 +1,16 @@
 import React from "react";
 import { FlightDataType } from "../Types";
-import { RouteComponentProps, withRouter } from "react-router";
 
-export interface FlightItemProps {
+export interface InfoCardProps {
   flight: FlightDataType;
-  flightIndex: number;
 }
 
-export interface ExtendedProps extends FlightItemProps, RouteComponentProps {}
-
-function FlightItem(props: ExtendedProps) {
-  const { flight, flightIndex } = props;
+export default function InfoCard(props: InfoCardProps) {
+  const { flight } = props;
 
   return (
-    <div
-      onClick={() => {
-        console.log("CLICKED");
-
-        console.log("HISTORY: ", props.history);
-
-        props.history.push({
-          pathname: `/flights/${flightIndex}`,
-          state: { flightItem: flight }
-        });
-      }}
-    >
+    <div>
+      <p>Info Card</p>
       <p>{flight.Airline}</p>
       <p>{flight.Time}</p>
       <p>{flight.FlightNo}</p>
@@ -35,9 +21,6 @@ function FlightItem(props: ExtendedProps) {
       {flight.OtherInfo.length > 0 ? <p>{flight.OtherInfo}</p> : <p>$$$$</p>}
       {flight.Additional.length > 0 ? <p>{flight.Additional}</p> : <p>@@@@@</p>}
       {flight.ArrHall.length > 0 ? <p>{flight.ArrHall}</p> : <p>!!!!!</p>}
-      <p>-----------------------</p>
     </div>
   );
 }
-
-export default withRouter(FlightItem);

@@ -1,17 +1,24 @@
 import React from "react";
 import { withRouter, RouteComponentProps } from "react-router";
-import { FlightDataType } from "../Types";
+import { FlightDataType, ArrDepType } from "../Types";
+import InfoCard from "./InfoCard";
 
 function InfoScreen(props: RouteComponentProps<{ index?: string }>) {
-  console.log("ID: ", props.match.params.index);
-
   const FLIGHT: FlightDataType = props.location.state["flightItem"];
 
-  console.log("STATE: ", FLIGHT.Airline);
+  // TODO: ROUTE STATE - GO BACK AND SHOW DEPS/ARRIVALS - CHANGE HOMESCREEN TOO
 
   return (
     <div>
-      <p>Info Screen</p>
+      <p>{`Flight ${FLIGHT.FlightNo} ${
+        FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
+      } ${FLIGHT.PortOfCallA}`}</p>
+
+      <p onClick={() => props.history.push("/")}>Back</p>
+
+      <InfoCard flight={FLIGHT} />
+
+      <p onClick={() => props.history.push("/")}>Back</p>
     </div>
   );
 }

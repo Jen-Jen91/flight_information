@@ -15,6 +15,8 @@ export default function HomeScreen() {
 
   // TODO: LOADING INDICATOR (SET TO FALSE IN USEEFFECT)
 
+  // TODO: NO FLIGHTS FOUND MESSAGE
+
   useEffect(() => {
     // let intervalId: NodeJS.Timeout | null = null;
     const fetchData = async () => {
