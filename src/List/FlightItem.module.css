@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 7rem 7rem 1fr 1fr 1fr 2fr;
   border: 1px solid black;
+  border-radius: 12px;
   margin: 0.5rem 0;
   text-align: center;
 

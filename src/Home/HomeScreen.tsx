@@ -56,30 +56,36 @@ export default function HomeScreen() {
       <div className={styles.header}>
         <h1>Live {showDepartures ? "Departures" : "Arrivals"}</h1>
 
-        <button onClick={fetchData}>Refresh</button>
+        <p onClick={fetchData} className={styles.refresh}>
+          Refresh Flights
+        </p>
       </div>
 
       {isError && (
         <p>Something went wrong! Please refresh the page to see our flights.</p>
       )}
 
-      {allFlights.length >= 1 ? (
-        <div className={styles.listGrid}>
-          <div onClick={() => setShowDepartures(false)} className={styles.tab}>
-            <p>Arrivals</p>
-          </div>
-          <div onClick={() => setShowDepartures(true)} className={styles.tab}>
-            <p>Departures</p>
-          </div>
-
-          {/* <div> */}
-          <FlightsList
-            flights={splitFlights()}
-            isDeparture={showDepartures}
-            dateTime={allFlights[0].dateTime}
-          />
-          {/* </div> */}
+      <div className={styles.tabContainer}>
+        <div
+          onClick={() => setShowDepartures(false)}
+          className={showDepartures ? styles.tab : styles.selectedTab}
+        >
+          <p>Arrivals</p>
         </div>
+        <div
+          onClick={() => setShowDepartures(true)}
+          className={showDepartures ? styles.selectedTab : styles.tab}
+        >
+          <p>Departures</p>
+        </div>
+      </div>
+
+      {allFlights.length >= 1 ? (
+        <FlightsList
+          flights={splitFlights()}
+          isDeparture={showDepartures}
+          dateTime={allFlights[0].dateTime}
+        />
       ) : (
         <p>No flights</p>
       )}

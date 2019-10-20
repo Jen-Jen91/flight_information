@@ -1,29 +1,54 @@
 .homeScreen {
   background-color: #eaeaea;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem 2rem 3rem;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  h1 {
-    /* color: #1f2051; */
-    font-size: 2.5rem;
-  }
 }
 
-.listGrid {
+h1 {
+  /* color: #1f2051; */
+  font-size: 3rem;
+  margin: 0;
+}
+
+.refresh {
+  cursor: pointer;
+}
+
+.tabContainer {
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  width: 20rem;
 
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
   background-color: #ffffff;
 }
 
 .tab {
   text-align: center;
-  border: 1px solid black;
   cursor: pointer;
+  font-weight: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+  color: #1f2051;
+}
+
+.selectedTab {
+  text-align: center;
+  cursor: pointer;
+  background-color: #1f2051;
+
+  font-weight: 1.8rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+  font-weight: bold;
 }
