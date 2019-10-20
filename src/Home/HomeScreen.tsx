@@ -13,6 +13,8 @@ export default function HomeScreen() {
 
   // TODO: ADD CLEANUP TO USE EFFECT
 
+  // TODO: LOADING INDICATOR (SET TO FALSE IN USEEFFECT)
+
   useEffect(() => {
     // let intervalId: NodeJS.Timeout | null = null;
     const fetchData = async () => {

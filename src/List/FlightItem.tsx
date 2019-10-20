@@ -14,8 +14,6 @@ function FlightItem(props: ExtendedProps) {
 
   // TODO: SORT FLIGHTS BY TIME (EARLIEST TO LATEST)
 
-  // TODO: ON CLICK FUNCTION - TAKES YOU TO INFO SCREEN - NEW ROUTE IN APP
-
   return (
     <div
       onClick={() => {
