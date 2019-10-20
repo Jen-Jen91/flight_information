@@ -7,10 +7,11 @@ import styles from "./FlightList.module.css";
 export interface FlightsListProps {
   flights: FlightDataType[];
   isDeparture: boolean;
+  dateTime: string;
 }
 
 export default function FlightsList(props: FlightsListProps) {
-  const { flights, isDeparture } = props;
+  const { flights, isDeparture, dateTime } = props;
   const [filteredFlights, setFilteredFlights] = useState<FlightDataType[]>([]);
 
   useEffect(() => setFilteredFlights(flights), [flights]);
@@ -28,6 +29,8 @@ export default function FlightsList(props: FlightsListProps) {
   return (
     <div className={styles.listContainer}>
       <SearchBar search={searchFlights} isDeparture={isDeparture} />
+
+      <h3>{dateTime}</h3>
 
       <div className={styles.headers}>
         <p>Airline</p>

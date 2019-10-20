@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter, RouteComponentProps } from "react-router";
 import { FlightDataType, ArrDepType } from "../Types";
 import InfoCard from "./InfoCard";
+import styles from "./InfoScreen.module.css";
 
 function InfoScreen(props: RouteComponentProps<{ index?: string }>) {
   const FLIGHT: FlightDataType = props.location.state["flightItem"];
@@ -9,16 +10,18 @@ function InfoScreen(props: RouteComponentProps<{ index?: string }>) {
   // TODO: ROUTE STATE - GO BACK AND SHOW DEPS/ARRIVALS - CHANGE HOMESCREEN TOO
 
   return (
-    <div>
-      <p>{`Flight ${FLIGHT.FlightNo} ${
-        FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
-      } ${FLIGHT.PortOfCallA}`}</p>
+    <div className={styles.infoScreen}>
+      <div className={styles.header}>
+        <h1>{`Flight ${FLIGHT.FlightNo} ${
+          FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
+        } ${FLIGHT.PortOfCallA}`}</h1>
 
-      <p onClick={() => props.history.push("/")}>Back</p>
+        <p onClick={() => props.history.push("/")}>Back</p>
+      </div>
 
       <InfoCard flight={FLIGHT} />
 
-      <p onClick={() => props.history.push("/")}>Back</p>
+      <p onClick={() => props.history.push("/")}>Back to All Flights</p>
     </div>
   );
 }

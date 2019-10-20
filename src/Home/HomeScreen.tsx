@@ -53,24 +53,32 @@ export default function HomeScreen() {
 
   return (
     <div className={styles.homeScreen}>
-      <p>Live {showDepartures ? "Departures" : "Arrivals"}</p>
-      <button onClick={fetchData}>Refresh</button>
+      <div className={styles.header}>
+        <h1>Live {showDepartures ? "Departures" : "Arrivals"}</h1>
+
+        <button onClick={fetchData}>Refresh</button>
+      </div>
 
       {isError && (
         <p>Something went wrong! Please refresh the page to see our flights.</p>
       )}
 
       {allFlights.length >= 1 ? (
-        <div>
-          <p onClick={() => setShowDepartures(false)}>Arrivals Tab</p>
-          <p onClick={() => setShowDepartures(true)}>Departures Tab</p>
-
-          <div>
-            <FlightsList
-              flights={splitFlights()}
-              isDeparture={showDepartures}
-            />
+        <div className={styles.listGrid}>
+          <div onClick={() => setShowDepartures(false)} className={styles.tab}>
+            <p>Arrivals</p>
           </div>
+          <div onClick={() => setShowDepartures(true)} className={styles.tab}>
+            <p>Departures</p>
+          </div>
+
+          {/* <div> */}
+          <FlightsList
+            flights={splitFlights()}
+            isDeparture={showDepartures}
+            dateTime={allFlights[0].dateTime}
+          />
+          {/* </div> */}
         </div>
       ) : (
         <p>No flights</p>

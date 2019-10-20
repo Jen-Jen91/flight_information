@@ -1,0 +1,30 @@
+.card {
+  padding: 2rem;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.rowHeaders {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.rowDetails {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.airline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.number {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.image {
+  margin: auto 0;
+}

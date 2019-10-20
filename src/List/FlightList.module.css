@@ -1,6 +1,5 @@
 .listContainer {
-  background-color: #ffffff;
-  margin: 1rem 2rem;
+  grid-column: 1 / span 2;
   padding: 2rem;
 }
 

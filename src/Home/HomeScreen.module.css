@@ -1,3 +1,29 @@
 .homeScreen {
   background-color: #eaeaea;
+  padding: 2rem 3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    /* color: #1f2051; */
+    font-size: 2.5rem;
+  }
+}
+
+.listGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+
+  background-color: #ffffff;
+}
+
+.tab {
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
 }
