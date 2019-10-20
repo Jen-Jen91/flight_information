@@ -1,23 +1,26 @@
 import React, { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 export interface SearchBarProps {
   search: (searchValue: string) => void;
+  isDeparture: boolean;
 }
 
 export default function SearchBar(props: SearchBarProps) {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div>
-      <input
-        placeholder="Search for flights"
-        type="search"
-        value={searchValue}
-        onChange={e => {
-          setSearchValue(e.target.value);
-          props.search(e.target.value);
-        }}
-      />
-    </div>
+    <input
+      className={styles.search}
+      placeholder={`Search for ${
+        props.isDeparture ? "departures" : "arrivals"
+      }`}
+      type="search"
+      value={searchValue}
+      onChange={e => {
+        setSearchValue(e.target.value);
+        props.search(e.target.value);
+      }}
+    />
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { FlightDataType } from "../Types";
 import { RouteComponentProps, withRouter } from "react-router";
+import styles from "./FlightItem.module.css";
 
 export interface FlightItemProps {
   flight: FlightDataType;
@@ -14,6 +15,7 @@ function FlightItem(props: ExtendedProps) {
 
   return (
     <div
+      className={styles.container}
       onClick={() => {
         console.log("CLICKED");
 
@@ -25,17 +27,26 @@ function FlightItem(props: ExtendedProps) {
         });
       }}
     >
-      <p>{flight.Airline}</p>
+      <img src={flight.Image} className={styles.image} />
+
       <p>{flight.Time}</p>
-      <p>{flight.FlightNo}</p>
-      {flight.FlightNo !== flight.ParentFlight && <p>{flight.ParentFlight}</p>}
+
+      <div className={styles.doubleColumn}>
+        <p>{flight.FlightNo}</p>
+        {flight.FlightNo !== flight.ParentFlight && (
+          <p>{flight.ParentFlight}</p>
+        )}
+      </div>
+
       <p>{flight.PortOfCallA}</p>
       {flight.Gate.length > 0 ? <p>{flight.Gate}</p> : <p>---</p>}
-      <p>{flight.Status}</p>
-      {flight.OtherInfo.length > 0 ? <p>{flight.OtherInfo}</p> : <p>$$$$</p>}
-      {flight.Additional.length > 0 ? <p>{flight.Additional}</p> : <p>@@@@@</p>}
-      {flight.ArrHall.length > 0 ? <p>{flight.ArrHall}</p> : <p>!!!!!</p>}
-      <p>-----------------------</p>
+
+      <div className={styles.doubleColumn}>
+        <p>{flight.Status}</p>
+        {flight.OtherInfo.length > 0 && <p>{flight.OtherInfo}</p>}
+        {/* {flight.Additional.length > 0 && <p>{flight.Additional}</p>}
+        {flight.ArrHall.length > 0 && <p>{flight.ArrHall}</p>} */}
+      </div>
     </div>
   );
 }

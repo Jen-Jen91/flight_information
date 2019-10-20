@@ -1,0 +1,13 @@
+.listContainer {
+  background-color: #ffffff;
+  margin: 1rem 2rem;
+  padding: 2rem;
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: 7rem 7rem 1fr 1fr 1fr 2fr;
+  border: 1px solid black;
+  margin-top: 1rem;
+  text-align: center;
+}

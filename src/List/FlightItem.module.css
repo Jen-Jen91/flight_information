@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: 7rem 7rem 1fr 1fr 1fr 2fr;
+  border: 1px solid black;
+  margin: 0.5rem 0;
+  text-align: center;
+
+  background-color: #1f2051;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: #45467e;
+}
+
+.doubleColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image {
+  margin: auto;
+}
