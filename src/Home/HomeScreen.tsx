@@ -7,6 +7,12 @@ export default function HomeScreen() {
   const [isError, setIsError] = useState(false);
   const [showDepartures, setShowDepartures] = useState(true);
 
+  // TODO: REFRESH BUTTON FUNCTION
+
+  // TODO: INTERVAL FUNCTION - FETCH DATA EVERY MINUTE (MAKE SURE FIRST RENDER ISN'T EMPTY ARRAY)
+
+  // TODO: ADD CLEANUP TO USE EFFECT
+
   useEffect(() => {
     // let intervalId: NodeJS.Timeout | null = null;
     const fetchData = async () => {
