@@ -1,5 +1,5 @@
-import React from "react";
-import { FlightDataType } from "../Types";
+import React, { useState } from "react";
+import { FlightDataType, ArrDepType } from "../Types";
 import styles from "./InfoCard.module.css";
 
 export interface InfoCardProps {
@@ -9,41 +9,49 @@ export interface InfoCardProps {
 export default function InfoCard(props: InfoCardProps) {
   const { flight } = props;
 
+  const isDeparture = flight.ArrDep === ArrDepType.DEPARTURE;
+
   return (
     <div className={styles.card}>
       <div className={styles.rowHeaders}>
-        <p>Airline:</p>
-        <p>Time:</p>
-        <p>Flight Number:</p>
-        <p>From/To:</p>
-        <p>Gate:</p>
-        <p>Status:</p>
-        <p>Info:</p>
-        <p>Arrival Hall:</p>
+        <p className={styles.detailHeader}>Airline:</p>
+        <p className={styles.detailHeader}>Time:</p>
+        <p className={styles.detailHeader}>Flight Number:</p>
+        <p className={styles.detailHeader}>
+          {`${isDeparture ? "To" : "From"}`}:
+        </p>
+        {isDeparture && <p className={styles.detailHeader}>Gate:</p>}
+        <p className={styles.detailHeader}>Status:</p>
+        <p className={styles.detailHeader}>Info:</p>
+        {!isDeparture && <p className={styles.detailHeader}>Arrival Hall:</p>}
       </div>
 
       <div className={styles.rowDetails}>
         <div className={styles.airline}>
           <img src={flight.Image} className={styles.image} />
-          <p>{flight.Airline}</p>
-          <p>{flight.airlineCode}</p>
+          <p className={styles.detail}>{flight.airlineCode}</p>
+          <p className={styles.detail}>{flight.Airline}</p>
         </div>
 
-        <p>{flight.Time}</p>
+        <p className={styles.detail}>{flight.Time}</p>
 
         <div className={styles.number}>
-          <p>{flight.FlightNo}</p>
+          <p className={styles.detail}>{flight.FlightNo}</p>
           {flight.FlightNo !== flight.ParentFlight && (
-            <p>{flight.ParentFlight}</p>
+            <p className={styles.detail}>{flight.ParentFlight}</p>
           )}
         </div>
 
-        <p>{flight.PortOfCallA}</p>
-        {flight.Gate.length > 0 ? <p>{flight.Gate}</p> : <p>---</p>}
-        <p>{flight.Status}</p>
-        {flight.OtherInfo.length > 0 && <p>{flight.OtherInfo}</p>}
-        {flight.Additional.length > 0 && <p>{flight.Additional}</p>}
-        {flight.ArrHall.length > 0 && <p>{flight.ArrHall}</p>}
+        <p className={styles.detail}>{flight.PortOfCallA}</p>
+        {isDeparture && <p>{flight.Gate}</p>}
+        <p className={styles.detail}>{flight.Status}</p>
+        {flight.OtherInfo.length > 0 && (
+          <p className={styles.detail}>{flight.OtherInfo}</p>
+        )}
+        {flight.Additional.length > 0 && (
+          <p className={styles.detail}>{flight.Additional}</p>
+        )}
+        {!isDeparture && <p className={styles.detail}>{flight.ArrHall}</p>}
       </div>
     </div>
   );

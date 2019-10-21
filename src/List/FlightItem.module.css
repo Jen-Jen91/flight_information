@@ -1,10 +1,11 @@
 .container {
   display: grid;
-  grid-template-columns: 7rem 7rem 1fr 1fr 1fr 2fr;
+  grid-template-columns: 7rem 0.5fr 1.2fr 1.5fr 1fr 2fr;
+  column-gap: 1rem;
   border: 1px solid black;
   border-radius: 12px;
   margin: 0.5rem 0;
-  text-align: center;
+  padding: 1rem 0;
 
   background-color: #1f2051;
   color: #ffffff;
@@ -22,4 +23,13 @@
 
 .image {
   margin: auto;
+}
+
+.columnDetail {
+  margin: auto 0;
+}
+
+.gateDetail {
+  text-align: center;
+  margin: auto 0;
 }

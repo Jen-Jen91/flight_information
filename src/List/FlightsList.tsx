@@ -33,12 +33,12 @@ export default function FlightsList(props: FlightsListProps) {
       <h3>{dateTime}</h3>
 
       <div className={styles.headers}>
-        <p>Airline</p>
-        <p>Time</p>
-        <p>Flight Number</p>
-        <p>{`${isDeparture ? "To" : "From"}`}</p>
-        <p>Gate</p>
-        <p>Status</p>
+        <h6 className={styles.arrivalHeader}>Airline</h6>
+        <h6>Time</h6>
+        <h6 className={styles.flightAndStatusHeader}>Flight Number</h6>
+        <h6>{`${isDeparture ? "To" : "From"}`}</h6>
+        <h6>{`${isDeparture ? "Gate" : "Baggage"}`}</h6>
+        <h6 className={styles.flightAndStatusHeader}>Status</h6>
       </div>
 
       {filteredFlights.length >= 1 ? (

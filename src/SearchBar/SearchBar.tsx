@@ -10,17 +10,19 @@ export default function SearchBar(props: SearchBarProps) {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <input
-      className={styles.search}
-      placeholder={`Search for ${
-        props.isDeparture ? "departures" : "arrivals"
-      }`}
-      type="search"
-      value={searchValue}
-      onChange={e => {
-        setSearchValue(e.target.value);
-        props.search(e.target.value);
-      }}
-    />
+    <div className={styles.searchContainer}>
+      <input
+        className={styles.search}
+        placeholder={`Search for ${
+          props.isDeparture ? "departures" : "arrivals"
+        }`}
+        type="search"
+        value={searchValue}
+        onChange={e => {
+          setSearchValue(e.target.value);
+          props.search(e.target.value);
+        }}
+      />
+    </div>
   );
 }

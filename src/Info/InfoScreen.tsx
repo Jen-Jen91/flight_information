@@ -16,12 +16,12 @@ function InfoScreen(props: RouteComponentProps<{ index?: string }>) {
           FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
         } ${FLIGHT.PortOfCallA}`}</h1>
 
-        <p onClick={() => props.history.push("/")}>Back</p>
+        <h3 onClick={() => props.history.push("/")}>Back</h3>
       </div>
 
       <InfoCard flight={FLIGHT} />
 
-      <p onClick={() => props.history.push("/")}>Back to All Flights</p>
+      <h3 onClick={() => props.history.push("/")}>Back to All Flights</h3>
     </div>
   );
 }

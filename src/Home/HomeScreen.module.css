@@ -10,12 +10,14 @@
 }
 
 h1 {
-  /* color: #1f2051; */
+  color: #1f2051;
   font-size: 3rem;
   margin: 0;
 }
 
 .refresh {
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
 }
 

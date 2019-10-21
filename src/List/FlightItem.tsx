@@ -29,23 +29,27 @@ function FlightItem(props: ExtendedProps) {
     >
       <img src={flight.Image} className={styles.image} />
 
-      <p>{flight.Time}</p>
+      <p className={styles.columnDetail}>{flight.Time}</p>
 
       <div className={styles.doubleColumn}>
-        <p>{flight.FlightNo}</p>
+        <p className={styles.columnDetail}>{flight.FlightNo}</p>
         {flight.FlightNo !== flight.ParentFlight && (
-          <p>{flight.ParentFlight}</p>
+          <p className={styles.columnDetail}>{flight.ParentFlight}</p>
         )}
       </div>
 
-      <p>{flight.PortOfCallA}</p>
-      {flight.Gate.length > 0 ? <p>{flight.Gate}</p> : <p>---</p>}
+      <p className={styles.columnDetail}>{flight.PortOfCallA}</p>
+      {flight.Gate.length > 0 ? (
+        <p className={styles.gateDetail}>{flight.Gate}</p>
+      ) : (
+        <p className={styles.gateDetail}>{flight.Additional}</p>
+      )}
 
       <div className={styles.doubleColumn}>
-        <p>{flight.Status}</p>
-        {flight.OtherInfo.length > 0 && <p>{flight.OtherInfo}</p>}
-        {/* {flight.Additional.length > 0 && <p>{flight.Additional}</p>}
-        {flight.ArrHall.length > 0 && <p>{flight.ArrHall}</p>} */}
+        <p className={styles.columnDetail}>{flight.Status}</p>
+        {flight.OtherInfo.length > 0 && (
+          <p className={styles.columnDetail}>{flight.OtherInfo}</p>
+        )}
       </div>
     </div>
   );

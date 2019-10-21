@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FlightDataType, ArrDepType } from "../Types";
 import FlightsList from "../List/FlightsList";
 import styles from "./HomeScreen.module.css";
+import Refresh from "../images/refresh.png";
 
 export default function HomeScreen() {
   const [allFlights, setAllFlights] = useState<FlightDataType[]>([]);
@@ -56,9 +57,7 @@ export default function HomeScreen() {
       <div className={styles.header}>
         <h1>Live {showDepartures ? "Departures" : "Arrivals"}</h1>
 
-        <p onClick={fetchData} className={styles.refresh}>
-          Refresh Flights
-        </p>
+        <img src={Refresh} onClick={fetchData} className={styles.refresh} />
       </div>
 
       {isError && (
