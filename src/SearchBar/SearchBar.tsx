@@ -12,11 +12,12 @@ export default function SearchBar(props: SearchBarProps) {
   return (
     <section className={styles.searchContainer}>
       <input
+        type="search"
         className={styles.search}
         placeholder={`Search for ${
           props.isDeparture ? "departures" : "arrivals"
         }...`}
-        type="search"
+        aria-label="Type to search all flights"
         value={searchValue}
         onChange={e => {
           setSearchValue(e.target.value);

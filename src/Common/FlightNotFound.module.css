@@ -1,6 +1,7 @@
 .noFlightsContainer {
-  text-align: center;
   margin-top: 4rem;
+
+  text-align: center;
 }
 
 .noFlightsHeaderText {

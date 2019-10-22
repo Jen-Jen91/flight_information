@@ -1,56 +1,62 @@
 .homeScreen {
-  background-color: var(--lightBlue);
   padding: 1rem 3rem 2rem 3rem;
+
+  background-color: var(--lightBlue);
 }
 
-.header {
+.titleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 1rem;
 }
 
-h1 {
-  color: var(--darkBlue);
-  font-size: 3rem;
+.title {
   margin: 0;
+
+  font-size: 4rem;
+  color: var(--darkBlue);
 }
 
 .refresh {
   height: 1.5rem;
   width: 1.5rem;
+
   cursor: pointer;
 }
 
 .tabContainer {
-  margin: 2rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 20rem;
 
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
   border-radius: 25px;
+  margin: 2rem auto 2.5rem auto;
+  width: 20rem;
+
   background-color: var(--white);
 }
 
 .tab {
-  text-align: center;
   cursor: pointer;
-  font-weight: 1.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.1px;
+
   color: #1f2051;
 }
 
 .selectedTab {
-  text-align: center;
   cursor: pointer;
-  background-color: #1f2051;
 
-  font-weight: 1.8rem;
+  background-color: #1f2051;
   border-radius: 25px;
+
+  color: #ffffff;
+}
+
+.tabText {
+  font-weight: 1.8rem;
+  font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1px;
-  color: #ffffff;
-  font-weight: bold;
 }
