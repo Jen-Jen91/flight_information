@@ -1,5 +1,5 @@
 import React from "react";
-import { FlightDataType } from "../Types";
+import { FlightDataType } from "../Common/Types";
 import { RouteComponentProps, withRouter } from "react-router";
 import styles from "./FlightItem.module.css";
 

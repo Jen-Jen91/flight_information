@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, RouteComponentProps } from "react-router";
-import { FlightDataType, ArrDepType } from "../Types";
+import { FlightDataType, ArrDepType } from "../Common/Types";
 import InfoCard from "./InfoCard";
 import styles from "./InfoScreen.module.css";
 

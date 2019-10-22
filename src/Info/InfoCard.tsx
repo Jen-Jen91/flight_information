@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlightDataType, ArrDepType } from "../Types";
+import { FlightDataType, ArrDepType } from "../Common/Types";
 import styles from "./InfoCard.module.css";
 
 export interface InfoCardProps {

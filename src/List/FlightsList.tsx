@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FlightDataType } from "../Types";
+import { FlightDataType } from "../Common/Types";
 import FlightItem from "./FlightItem";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./FlightList.module.css";
+import FlightsNotFound, {
+  FlightsNotFoundProps
+} from "../Common/FlightNotFound";
 
 export interface FlightsListProps {
   flights: FlightDataType[];
@@ -13,8 +16,19 @@ export interface FlightsListProps {
 export default function FlightsList(props: FlightsListProps) {
   const { flights, isDeparture, dateTime } = props;
   const [filteredFlights, setFilteredFlights] = useState<FlightDataType[]>([]);
+  const [noFlightsText, setNoFlightsText] = useState<FlightsNotFoundProps>({
+    headerText: "",
+    text: ""
+  });
 
   useEffect(() => setFilteredFlights(flights), [flights]);
+
+  useEffect(() => {
+    setNoFlightsText({
+      headerText: "There are currently no flights available.",
+      text: " Please check again later."
+    });
+  }, []);
 
   function searchFlights(searchText: string) {
     const newFiltered = flights.filter(flight =>
@@ -23,6 +37,11 @@ export default function FlightsList(props: FlightsListProps) {
         .includes(searchText.toLocaleUpperCase())
     );
 
+    newFiltered.length === 0 &&
+      setNoFlightsText({
+        headerText: "Flight cannot be found. ",
+        text: "Please search for a different flight."
+      });
     setFilteredFlights(newFiltered);
   }
 
@@ -46,7 +65,10 @@ export default function FlightsList(props: FlightsListProps) {
           return <FlightItem key={index} flight={flight} flightIndex={index} />;
         })
       ) : (
-        <p>Flight cannot be found</p>
+        <FlightsNotFound
+          headerText={noFlightsText.headerText}
+          text={noFlightsText.text}
+        />
       )}
     </div>
   );

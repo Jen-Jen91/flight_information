@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlightDataType, ArrDepType } from "../Types";
+import { FlightDataType, ArrDepType } from "../Common/Types";
 import FlightsList from "../List/FlightsList";
 import styles from "./HomeScreen.module.css";
 import Refresh from "../images/refresh.png";
@@ -79,14 +79,12 @@ export default function HomeScreen() {
         </div>
       </div>
 
-      {allFlights.length >= 1 ? (
+      {allFlights.length >= 1 && (
         <FlightsList
           flights={splitFlights()}
           isDeparture={showDepartures}
           dateTime={allFlights[0].dateTime}
         />
-      ) : (
-        <p>No flights</p>
       )}
     </div>
   );
