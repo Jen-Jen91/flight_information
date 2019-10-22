@@ -1,38 +1,39 @@
 .listContainer {
-  padding: 2rem;
-
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
   border-radius: 12px;
+  padding: 2rem 3rem;
+
   background-color: #ffffff;
 }
 
-h3 {
+.date {
+  margin: 1.5rem auto;
+
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #1f2051;
 }
 
-.headers {
+.headerContainer {
   display: grid;
-  grid-template-columns: 7rem 0.5fr 1.2fr 1.5fr 1fr 2fr;
-  column-gap: 1rem;
-  /* border: 1px solid black; */
-  margin-top: 1rem;
-  /* padding-left: 1rem; */
-  /* text-align: center; */
+  grid-template-columns: 7rem 0.5fr 1.2fr 1fr 1fr 2fr;
+  column-gap: 1.5rem;
 }
 
-.arrivalHeader {
-  margin-left: 1rem;
-}
+.header {
+  margin: 0.5rem 0;
 
-/* .flightAndStatusHeader {
-  text-align: left;
-  margin-left: 3rem;
-} */
-
-h6 {
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #1f2051;
-  margin: auto 0;
+}
+
+.arrivalHeader {
+  margin: 0.5rem 0 0.5rem 1rem;
+
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1f2051;
 }

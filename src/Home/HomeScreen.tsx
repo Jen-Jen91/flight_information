@@ -34,6 +34,7 @@ export default function HomeScreen() {
     }
   }
 
+  // Split all flights into arrivals and departures
   function splitFlights() {
     const arrivalFlights: FlightDataType[] = [];
     const departureFlights: FlightDataType[] = [];

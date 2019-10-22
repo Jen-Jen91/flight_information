@@ -15,6 +15,7 @@ export interface FlightsListProps {
 
 export default function FlightsList(props: FlightsListProps) {
   const { flights, isDeparture, dateTime } = props;
+
   const [filteredFlights, setFilteredFlights] = useState<FlightDataType[]>([]);
   const [noFlightsText, setNoFlightsText] = useState<FlightsNotFoundProps>({
     headerText: "",
@@ -30,6 +31,7 @@ export default function FlightsList(props: FlightsListProps) {
     });
   }, []);
 
+  // Search all flights by airline, flight number, destination/origin, and time
   function searchFlights(searchText: string) {
     const newFiltered = flights.filter(flight =>
       `${flight.Airline} ${flight.FlightNo} ${flight.PortOfCallA} ${flight.Time}`
@@ -46,30 +48,36 @@ export default function FlightsList(props: FlightsListProps) {
   }
 
   return (
-    <div className={styles.listContainer}>
+    <section className={styles.listContainer}>
       <SearchBar search={searchFlights} isDeparture={isDeparture} />
 
-      <h3>{dateTime}</h3>
-
-      <div className={styles.headers}>
-        <h6 className={styles.arrivalHeader}>Airline</h6>
-        <h6>Time</h6>
-        <h6 className={styles.flightAndStatusHeader}>Flight Number</h6>
-        <h6>{`${isDeparture ? "To" : "From"}`}</h6>
-        <h6>{`${isDeparture ? "Gate" : "Baggage"}`}</h6>
-        <h6 className={styles.flightAndStatusHeader}>Status</h6>
-      </div>
-
       {filteredFlights.length >= 1 ? (
-        filteredFlights.map((flight, index) => {
-          return <FlightItem key={index} flight={flight} flightIndex={index} />;
-        })
+        <>
+          <h3 className={styles.date}>{dateTime}</h3>
+
+          <span className={styles.headerContainer}>
+            <h6 className={styles.arrivalHeader}>Airline</h6>
+            <h6 className={styles.header}>Time</h6>
+            <h6 className={styles.header}>Flight Number</h6>
+            <h6 className={styles.header}>{`${
+              isDeparture ? "To" : "From"
+            }`}</h6>
+            <h6 className={styles.header}>{`${
+              isDeparture ? "Gate" : "Baggage"
+            }`}</h6>
+            <h6 className={styles.header}>Status</h6>
+          </span>
+
+          {filteredFlights.map((flight, index) => (
+            <FlightItem key={index} flight={flight} flightIndex={index} />
+          ))}
+        </>
       ) : (
         <FlightsNotFound
           headerText={noFlightsText.headerText}
           text={noFlightsText.text}
         />
       )}
-    </div>
+    </section>
   );
 }

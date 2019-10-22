@@ -1,19 +1,25 @@
-.container {
+.singleFlightContainer {
   display: grid;
-  grid-template-columns: 7rem 0.5fr 1.2fr 1.5fr 1fr 2fr;
-  column-gap: 1rem;
-  border: 1px solid black;
+  grid-template-columns: 7rem 0.5fr 1.2fr 1fr 1fr 2fr;
+  column-gap: 1.5rem;
+
   border-radius: 12px;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
   margin: 0.5rem 0;
   padding: 1rem 0;
 
-  background-color: #1f2051;
-  color: #ffffff;
+  background-color: var(--darkBlue);
   cursor: pointer;
+
+  color: var(--white);
 }
 
-.container:hover {
-  background-color: #45467e;
+.singleFlightContainer:hover {
+  background-color: var(--darkBlueHover);
+}
+
+.image {
+  margin: auto;
 }
 
 .doubleColumn {
@@ -21,15 +27,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.image {
-  margin: auto;
-}
-
 .columnDetail {
-  margin: auto 0;
-}
-
-.gateDetail {
-  text-align: center;
   margin: auto 0;
 }
