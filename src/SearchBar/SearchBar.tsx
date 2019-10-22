@@ -10,12 +10,12 @@ export default function SearchBar(props: SearchBarProps) {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className={styles.searchContainer}>
+    <section className={styles.searchContainer}>
       <input
         className={styles.search}
         placeholder={`Search for ${
           props.isDeparture ? "departures" : "arrivals"
-        }`}
+        }...`}
         type="search"
         value={searchValue}
         onChange={e => {
@@ -23,6 +23,6 @@ export default function SearchBar(props: SearchBarProps) {
           props.search(e.target.value);
         }}
       />
-    </div>
+    </section>
   );
 }
