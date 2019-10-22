@@ -4,25 +4,32 @@ import { FlightDataType, ArrDepType } from "../Common/Types";
 import InfoCard from "./InfoCard";
 import styles from "./InfoScreen.module.css";
 
-function InfoScreen(props: RouteComponentProps<{ index?: string }>) {
+function InfoScreen(props: RouteComponentProps) {
   const FLIGHT: FlightDataType = props.location.state["flightItem"];
 
-  // TODO: ROUTE STATE - GO BACK AND SHOW DEPS/ARRIVALS - CHANGE HOMESCREEN TOO
-
   return (
-    <div className={styles.infoScreen}>
-      <div className={styles.header}>
-        <h1>{`Flight ${FLIGHT.FlightNo} ${
-          FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
-        } ${FLIGHT.PortOfCallA}`}</h1>
+    <section className={styles.infoScreen}>
+      <span className={styles.infoHeaderContainer}>
+        <h1 className={styles.infoHeader}>
+          {`Flight ${FLIGHT.FlightNo} ${
+            FLIGHT.ArrDep === ArrDepType.ARRIVAL ? "from" : "to"
+          } ${FLIGHT.PortOfCallA}`}
+        </h1>
 
-        <h3 onClick={() => props.history.push("/")}>Back</h3>
-      </div>
+        <h3 className={styles.back} onClick={() => props.history.push("/")}>
+          Back
+        </h3>
+      </span>
 
       <InfoCard flight={FLIGHT} />
 
-      <h3 onClick={() => props.history.push("/")}>Back to All Flights</h3>
-    </div>
+      <div
+        className={styles.viewAllContainer}
+        onClick={() => props.history.push("/")}
+      >
+        <h3 className={styles.viewAll}>View all flights</h3>
+      </div>
+    </section>
   );
 }
 
