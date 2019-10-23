@@ -1,8 +1,20 @@
 .searchContainer {
   border: 2px solid #1f2051;
   border-radius: 25px;
-  margin: 0 7rem;
+
   padding: 0 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .searchContainer {
+    margin: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .searchContainer {
+    margin: 0 7rem;
+  }
 }
 
 .search {

@@ -1,6 +1,6 @@
 ## Flight Information
 
-This web app was created in React to show up-to-date flight information. Users can view a list of arrivals and departures, and click on each flight for more information, including:
+This web app was created in React to show up-to-date flight information. Users can toggle between a list of arrivals and departures, and click on each flight for more information, including:
 
 - Airline
 - Time

@@ -15,9 +15,15 @@
 }
 
 .headerContainer {
-  display: grid;
-  grid-template-columns: 7rem 0.5fr 1.2fr 1fr 1fr 2fr;
-  column-gap: 1.5rem;
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .headerContainer {
+    display: grid;
+    grid-template-columns: 7rem 0.5fr 1.2fr 1fr 1fr 2fr;
+    column-gap: 1.5rem;
+  }
 }
 
 .header {
